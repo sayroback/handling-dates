@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const useCalendarData = (locale = "es", year) => {
   const today = new Date();
@@ -30,6 +30,6 @@ export const useCalendarData = (locale = "es", year) => {
       startsOn,
     };
   });
-  
-  return {calendar, weekDaysNames, today, year}
-}
+
+  return { calendar, weekDaysNames, today, year };
+};
