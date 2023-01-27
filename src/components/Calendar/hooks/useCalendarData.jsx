@@ -38,5 +38,12 @@ export const useCalendarData = (locale = "es", year) => {
     };
   });
 
-  return { calendar, weekDaysNames, today, year, fullDate };
+  const listMonthNames = calendar.map((cal) => cal.monthName);
+
+  const findIndexMonth = (monthToFind) => {
+    let indexMonth = listMonthNames.findIndex((el) => el === monthToFind);
+    return indexMonth;
+  };
+
+  return { calendar, weekDaysNames, today, year, fullDate, findIndexMonth };
 };

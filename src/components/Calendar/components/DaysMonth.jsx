@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useOnClickDay } from "../hooks/useOnClickDay";
 
 export const DaysMonth = ({
   daysNumber,
@@ -10,6 +11,15 @@ export const DaysMonth = ({
   year,
 }) => {
   const days = [...Array(daysNumber).keys()];
+  const [selectDay, setSelectDat] = useState({
+    dayClick: today,
+    month: monthToday,
+  });
+  const { OnClickDay } = useOnClickDay();
+  const clickDay = (year, month, dayClick) => {
+    let dataClick = OnClickDay(year, month, dayClick);
+    setSelectDat(dataClick);
+  };
 
   return (
     <>
@@ -21,10 +31,12 @@ export const DaysMonth = ({
                 start={startsOn}
                 style={i === 0 ? { gridColumn: `${startsOn + 1}` } : null}
                 className={i === 0 ? "first-day" : null}
+                onClick={() => clickDay(year, monthName, i + 1)}
               >
                 <span
                   className={
-                    (monthName === monthToday) & (today === i + 1)
+                    (monthName === selectDay.month) &
+                    (selectDay.dayClick === i + 1)
                       ? "today"
                       : null
                   }

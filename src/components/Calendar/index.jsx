@@ -15,10 +15,8 @@ const Carrousel = styled.div`
 // Las dimensiones máximas del componente son 720x600 px
 export const CalendarDesktop = ({ locale = "es", Year }) => {
   const [carrouselScroll, setCarrouselScroll] = useState(0);
-  const { calendar, weekDaysNames, fullDate, year, today } = useCalendarData(
-    locale,
-    Year
-  );
+  const { calendar, weekDaysNames, fullDate, year, today, findIndexMonth } =
+    useCalendarData(locale, Year);
   const { monthTodayNameString, numDay } = useCalendarEvent(locale);
 
   return (

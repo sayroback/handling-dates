@@ -1,9 +1,13 @@
 import React from "react";
+import { useCalendarData } from "./useCalendarData";
 
 export const useOnClickDay = () => {
-  let dateOfClick;
-  const OnClickDay = (year, month, day) => {
-    console.log(year, month, day);
+  const { findIndexMonth } = useCalendarData();
+
+  const OnClickDay = (year, month, dayClick) => {
+    let monthIndex = findIndexMonth(month);
+    let newDate = new Date(year, monthIndex, dayClick);
+    return { monthIndex, dayClick, month, newDate };
   };
   return { OnClickDay };
 };
