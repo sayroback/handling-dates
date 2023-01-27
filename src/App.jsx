@@ -4,7 +4,7 @@ import { CalendarDesktop } from "./components/Calendar";
 function App() {
   return (
     <div className="App">
-      <CalendarDesktop Year={2022} locale="es" />
+      <CalendarDesktop locale="es" />
     </div>
   );
 }

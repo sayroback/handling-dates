@@ -11,5 +11,8 @@ export const useCalendarEvent = (locale = "es") => {
 
   let numDay = today.getDate();
 
-  return { monthTodayNameString, numDay };
+  const fraccionScroll = 100 / 12;
+  const initialScroll = fraccionScroll * -monthToday;
+
+  return { monthTodayNameString, numDay, monthToday, initialScroll };
 };

@@ -14,15 +14,19 @@ const Carrousel = styled.div`
 // Las dimensiones mínimas del componente son 470x470 px
 // Las dimensiones máximas del componente son 720x600 px
 export const CalendarDesktop = ({ locale = "es", Year }) => {
-  const [carrouselScroll, setCarrouselScroll] = useState(0);
   const { calendar, weekDaysNames, fullDate, year, today, findIndexMonth } =
     useCalendarData(locale, Year);
-  const { monthTodayNameString, numDay } = useCalendarEvent(locale);
+  const { monthTodayNameString, numDay, initialScroll } =
+    useCalendarEvent(locale);
+
+  const [carrouselScroll, setCarrouselScroll] = useState(initialScroll);
 
   return (
     <div className="date-picker">
       <div className="date-picker--header">
-        <span>{fullDate}</span>
+        <span onClick={() => setCarrouselScroll(initialScroll)}>
+          {fullDate}
+        </span>
         <Buttons setValue={setCarrouselScroll} value={carrouselScroll} />
       </div>
       <section className="calendar">

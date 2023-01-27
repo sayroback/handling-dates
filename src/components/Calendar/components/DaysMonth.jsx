@@ -11,14 +11,20 @@ export const DaysMonth = ({
   year,
 }) => {
   const days = [...Array(daysNumber).keys()];
-  const [selectDay, setSelectDat] = useState({
+  const initialSelectDay = {
     dayClick: today,
     month: monthToday,
-  });
+  };
+  const [selectDay, setSelectDay] = useState(initialSelectDay);
   const { OnClickDay } = useOnClickDay();
   const clickDay = (year, month, dayClick) => {
     let dataClick = OnClickDay(year, month, dayClick);
-    setSelectDat(dataClick);
+    if (JSON.stringify(selectDay) === JSON.stringify(dataClick)) {
+      setSelectDay(initialSelectDay);
+    } else {
+      setSelectDay(dataClick);
+    }
+    console.log(dataClick);
   };
 
   return (
