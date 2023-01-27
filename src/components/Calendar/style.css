@@ -1,6 +1,4 @@
 .App {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +10,7 @@
   --background-datePicker: #ffffff;
   --hover-datePicker: #f1f1f1;
   --alert-datePicker: #ff7b7b;
+  --today-dataPicker: #4ac8e7;
 }
 body {
   margin: 5px;
@@ -144,9 +143,11 @@ body {
 .calendar__month__days--number li span {
   font-size: 1rem;
   text-align: center;
-  background-color: var(--alert-datePicker);
   width: 1rem;
   height: 1rem;
   padding: 1rem;
   border-radius: 50%;
+}
+.calendar__month__days--number li span.today {
+  background-color: var(--today-dataPicker);
 }

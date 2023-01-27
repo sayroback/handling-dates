@@ -6,6 +6,7 @@ import { Month } from "./components/Month";
 import { useCalendarData } from "./hooks/useCalendarData";
 import styled from "styled-components";
 import { Buttons } from "./components/Buttons";
+import { useCalendarEvent } from "./hooks/useCalendarEvent";
 
 const Carrousel = styled.div`
   transform: translateX(${(prop) => prop.translate}%);
@@ -14,10 +15,12 @@ const Carrousel = styled.div`
 // Las dimensiones máximas del componente son 720x600 px
 export const CalendarDesktop = ({ locale = "es", Year }) => {
   const [carrouselScroll, setCarrouselScroll] = useState(0);
-  const { calendar, weekDaysNames, fullDate, year } = useCalendarData(
+  const { calendar, weekDaysNames, fullDate, year, today } = useCalendarData(
     locale,
     Year
   );
+  const { monthTodayNameString, numDay } = useCalendarEvent(locale);
+
   return (
     <div className="date-picker">
       <div className="date-picker--header">
@@ -44,6 +47,10 @@ export const CalendarDesktop = ({ locale = "es", Year }) => {
                       ClassName="calendar__month__days--number"
                       daysNumber={cal.daysOfMonth}
                       startsOn={cal.startsOn}
+                      monthName={cal.monthName}
+                      today={numDay}
+                      monthToday={monthTodayNameString}
+                      year={year}
                     />
                   </div>
                 </div>
