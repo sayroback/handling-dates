@@ -10,18 +10,18 @@ import { Buttons } from "./components/Buttons";
 const Carrousel = styled.div`
   transform: translateX(${(prop) => prop.translate}%);
 `;
-
-export const Calendar = ({ locale = "es", Year }) => {
+// Las dimensiones mínimas del componente son 470x470 px
+// Las dimensiones máximas del componente son 720x600 px
+export const CalendarDesktop = ({ locale = "es", Year }) => {
   const [carrouselScroll, setCarrouselScroll] = useState(0);
-  const { calendar, weekDaysNames, today, year } = useCalendarData(
+  const { calendar, weekDaysNames, fullDate, year } = useCalendarData(
     locale,
     Year
   );
-  console.log(calendar);
   return (
     <div className="date-picker">
       <div className="date-picker--header">
-        <span>{today.toDateString()}</span>
+        <span>{fullDate}</span>
         <Buttons setValue={setCarrouselScroll} value={carrouselScroll} />
       </div>
       <section className="calendar">

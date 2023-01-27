@@ -1,53 +1,89 @@
 .App {
-  width: 90vw;
-  height: 80vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --background-datePicker: #ffffff;
+  --hover-datePicker: #f1f1f1;
+  --alert-datePicker: #ff7b7b;
 }
 
 .date-picker {
   width: inherit;
   height: inherit;
+  min-height: 29rem;
+  min-width: 29rem;
   max-width: 45rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--background-datePicker);
 }
 
 .date-picker--header {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 1.2rem;
+  padding-bottom: 12px;
 }
 
 .calendar {
   width: 100%;
   height: 100%;
   max-width: 45rem;
-  max-height: 30rem;
-  background-color: lightblue;
+  min-height: 26.5rem;
+  max-height: 35rem;
   overflow: hidden;
 }
 
 .calendar--container {
   width: 1200%;
   height: 100%;
-  background-color: orange;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
 }
 
 .calendar__buttons {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.calendar__buttons button {
+  cursor: pointer;
+  background: none;
+  border: solid 2px #111;
+  border-radius: 50%;
+  width: 2.8rem;
+  height: 2.8rem;
+  transition: background-color 0.3s ease;
+}
+.calendar__buttons button:hover {
+  background-color: var(--hover-datePicker);
+}
+
+.calendar__buttons button div {
+  display: flex;
+  align-items: center;
+}
+
+.calendar__buttons--left {
+  transform: rotate(180deg);
 }
 
 .calendar__month--container {
   height: 90%;
   width: calc(100% / 12);
-  background-color: aquamarine;
   display: flex;
   flex-direction: column;
 }
@@ -69,7 +105,8 @@
 
 .calendar__month--name {
   text-align: center;
-  margin: 20px 0;
+  margin: 0;
+  margin-bottom: 20px;
   font-size: 1.6rem;
 }
 
@@ -87,12 +124,13 @@
 }
 
 .calendar__month__days--number li:hover {
-  background-color: brown;
+  background-color: var(--hover-datePicker);
+  cursor: pointer;
 }
 .calendar__month__days--number li span {
   font-size: 1rem;
   text-align: center;
-  background-color: palevioletred;
+  background-color: var(--alert-datePicker);
   width: 1rem;
   height: 1rem;
   padding: 1rem;

@@ -1,10 +1,10 @@
 import React from "react";
-import { Calendar } from "./components/Calendar";
+import { CalendarDesktop } from "./components/Calendar";
 
 function App() {
   return (
     <div className="App">
-      <Calendar Year={2022} />
+      <CalendarDesktop Year={2022} locale="es" />
     </div>
   );
 }

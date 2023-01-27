@@ -3,7 +3,14 @@ import React from "react";
 export const useCalendarData = (locale = "es", year) => {
   const today = new Date();
   year ??= today.getUTCFullYear();
-
+  const opciones = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const todaySting = today.toLocaleDateString(locale, opciones);
+  const fullDate = todaySting.charAt(0).toUpperCase() + todaySting.slice(1);
   const weekdays = [...Array(7).keys()];
   const intlWeekDay = new Intl.DateTimeFormat(locale, { weekday: "short" });
 
@@ -31,5 +38,5 @@ export const useCalendarData = (locale = "es", year) => {
     };
   });
 
-  return { calendar, weekDaysNames, today, year };
+  return { calendar, weekDaysNames, today, year, fullDate };
 };
