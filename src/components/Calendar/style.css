@@ -1,0 +1,28 @@
+.calendar__month__days ol {
+  margin: 0;
+  padding: 0;
+}
+.calendar__month__days ol li {
+  list-style: none;
+}
+
+.calendar__month--name {
+  text-align: center;
+}
+
+.calendar__month__days--name {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: 700;
+  text-align: center;
+}
+
+.calendar__month__days--number {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.calendar__month__days--number li:hover {
+  background-color: brown;
+}
