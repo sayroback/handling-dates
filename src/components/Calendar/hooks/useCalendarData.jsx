@@ -8,7 +8,7 @@ export const useCalendarData = (locale = "es", year) => {
   const intlWeekDay = new Intl.DateTimeFormat(locale, { weekday: "short" });
 
   const weekDaysNames = weekdays.map((_, weekDayIndex) => {
-    const date = new Date(2021, 10, weekDayIndex + 1);
+    const date = new Date(2021, 10, weekDayIndex);
     const weekDayName = intlWeekDay.format(date);
     return weekDayName;
   });
