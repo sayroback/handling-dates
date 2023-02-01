@@ -6,18 +6,14 @@ export const Buttons = ({ setValue, value }) => {
   const [loopLeft, setLoopLeft] = useState(false);
   const [loopRight, setLoopRight] = useState(false);
   const clickLeft = () => {
-    setValue(value + 100 / 12);
-    //setValue(value - 100 / 12);
-
+    setValue(value - 1);
     setLoopLeft(true);
     setTimeout(() => {
       setLoopLeft(false);
     }, 10);
   };
   const clickRight = () => {
-    //setValue(value + 100 / 12);
-    setValue(value - 100 / 12);
-
+    setValue(value + 1);
     setLoopRight(true);
     setTimeout(() => {
       setLoopRight(false);
@@ -29,11 +25,11 @@ export const Buttons = ({ setValue, value }) => {
       <button
         className="calendar__buttons--left"
         onClick={() => clickLeft()}
-        disabled={value >= 0}
+        disabled={value === 0}
       >
         <Lottie animationData={arrow} loop={loopLeft}></Lottie>
       </button>
-      <button onClick={() => clickRight()} disabled={value < -91}>
+      <button onClick={() => clickRight()} disabled={value >= 11}>
         <Lottie animationData={arrow} loop={loopRight}></Lottie>
       </button>
     </div>

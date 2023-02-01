@@ -8,12 +8,9 @@ import styled from "styled-components";
 import { Buttons } from "./components/Buttons";
 import { useCalendarEvent } from "./hooks/useCalendarEvent";
 
-const Carrousel = styled.div`
-  transform: translateX(${(prop) => prop.translate}%);
-`;
 // Las dimensiones mínimas del componente son 470x470 px
 // Las dimensiones máximas del componente son 720x600 px
-export const CalendarDesktop = ({ locale = "es", Year }) => {
+export const CalendarDesktop = ({ locale = "es", Year, listEvents }) => {
   const { calendar, weekDaysNames, fullDate, year, today, findIndexMonth } =
     useCalendarData(locale, Year);
   const { monthTodayNameString, numDay, initialScroll } =
@@ -30,35 +27,31 @@ export const CalendarDesktop = ({ locale = "es", Year }) => {
         <Buttons setValue={setCarrouselScroll} value={carrouselScroll} />
       </div>
       <section className="calendar">
-        <Carrousel translate={carrouselScroll} className="calendar--container">
-          {calendar
-            ? calendar.map((cal, i) => (
-                <div key={i} className="calendar__month--container">
-                  {/* Las clases de los componentes se asignan con la primer letra mayúscula ClassName ya que NO es el atributo className de ReactJS */}
-                  <Month
-                    ClassName="calendar__month--name"
-                    monthName={cal.monthName}
-                    year={year}
-                  />
-                  <div className="calendar__month__days">
-                    <DaysNames
-                      ClassName="calendar__month__days--name"
-                      weekDaysNames={weekDaysNames}
-                    />
-                    <DaysMonth
-                      ClassName="calendar__month__days--number"
-                      daysNumber={cal.daysOfMonth}
-                      startsOn={cal.startsOn}
-                      monthName={cal.monthName}
-                      today={numDay}
-                      monthToday={monthTodayNameString}
-                      year={year}
-                    />
-                  </div>
-                </div>
-              ))
-            : null}
-        </Carrousel>
+        <div className="calendar--container">
+          <div className="calendar__month--container">
+            {/* Las clases de los componentes se asignan con la primer letra mayúscula ClassName ya que NO es el atributo className de ReactJS */}
+            <Month
+              ClassName="calendar__month--name"
+              monthName={calendar[carrouselScroll].monthName}
+              year={year}
+            />
+            <div className="calendar__month__days">
+              <DaysNames
+                ClassName="calendar__month__days--name"
+                weekDaysNames={weekDaysNames}
+              />
+              <DaysMonth
+                ClassName="calendar__month__days--number"
+                daysNumber={calendar[carrouselScroll].daysOfMonth}
+                startsOn={calendar[carrouselScroll].startsOn}
+                monthName={calendar[carrouselScroll].monthName}
+                today={numDay}
+                monthToday={monthTodayNameString}
+                year={year}
+              />
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

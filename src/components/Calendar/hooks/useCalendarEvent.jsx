@@ -10,9 +10,7 @@ export const useCalendarEvent = (locale = "es") => {
     monthTodayName.charAt(0).toUpperCase() + monthTodayName.slice(1);
 
   let numDay = today.getDate();
-
-  const fraccionScroll = 100 / 12;
-  const initialScroll = fraccionScroll * -monthToday;
+  const initialScroll = monthToday;
 
   return { monthTodayNameString, numDay, monthToday, initialScroll };
 };
