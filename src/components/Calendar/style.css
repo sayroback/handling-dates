@@ -1,6 +1,6 @@
 .App {
-  width: 40%;
-  height: 50vh;
+  width: 500px;
+  height: 500px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -12,8 +12,8 @@
 :root {
   --background-datePicker: #ffffff;
   --hover-datePicker: #f1f1f1;
-  --alert-datePicker: #ff7b7b;
-  --today-dataPicker: #4ac8e7;
+  --today-dataPicker: #ff7b7b;
+  --alert-datePicker: #4ac8e7;
 }
 
 body {
@@ -140,6 +140,9 @@ body {
   border: none;
   transition: background-color 0.3s ease;
   min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .calendar__month__days--number button:hover {
@@ -147,9 +150,8 @@ body {
   cursor: pointer;
 }
 
-.calendar__month__days--number button span {
+.calendar__month__days--number button div {
   font-size: 0.9rem;
-  text-align: center;
   width: 0.9rem;
   height: 0.9rem;
   padding: 0.5rem;
@@ -158,6 +160,7 @@ body {
   transition: background-color 0.3s cubic-bezier(0.43, 0.01, 1, 0.72);
 }
 
-.calendar__month__days--number button span.today {
+.calendar__month__days--number button div.today {
   background-color: var(--today-dataPicker);
+  color: var(--hover-datePicker);
 }

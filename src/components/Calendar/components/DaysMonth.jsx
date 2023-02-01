@@ -39,7 +39,7 @@ export const DaysMonth = ({
                 className={i === 0 ? "first-day" : null}
                 onClick={() => clickDay(year, monthName, i + 1)}
               >
-                <span
+                <div
                   className={
                     (monthName === selectDay.month) &
                     (selectDay.dayClick === i + 1)
@@ -48,7 +48,7 @@ export const DaysMonth = ({
                   }
                 >
                   {day + 1}
-                </span>
+                </div>
               </button>
             ))
           : null}
