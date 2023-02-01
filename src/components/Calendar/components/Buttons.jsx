@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import React, { useState } from "react";
 import arrow from "../assets/arrow.json";
 
-export const Buttons = ({ setValue, value }) => {
+export const Buttons = ({ setValue, value, children }) => {
   const [loopLeft, setLoopLeft] = useState(false);
   const [loopRight, setLoopRight] = useState(false);
   const clickLeft = () => {
@@ -21,7 +21,7 @@ export const Buttons = ({ setValue, value }) => {
   };
 
   return (
-    <div className="calendar__buttons">
+    <>
       <button
         className="calendar__buttons--left"
         onClick={() => clickLeft()}
@@ -29,9 +29,10 @@ export const Buttons = ({ setValue, value }) => {
       >
         <Lottie animationData={arrow} loop={loopLeft}></Lottie>
       </button>
+      {children}
       <button onClick={() => clickRight()} disabled={value >= 11}>
         <Lottie animationData={arrow} loop={loopRight}></Lottie>
       </button>
-    </div>
+    </>
   );
 };

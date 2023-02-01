@@ -14,12 +14,15 @@ export const useCalendarData = (locale = "es", year) => {
   const weekdays = [...Array(7).keys()];
   const intlWeekDay = new Intl.DateTimeFormat(locale, { weekday: "short" });
 
-  const weekDaysNames = weekdays.map((_, weekDayIndex) => {
+  let weekDaysNames = weekdays.map((_, weekDayIndex) => {
     const date = new Date(2021, 10, weekDayIndex);
     const weekDayName = intlWeekDay.format(date);
     return weekDayName;
   });
 
+  const firstDay = weekDaysNames[0];
+  weekDaysNames.shift();
+  weekDaysNames.push(firstDay);
   const months = [...Array(12).keys()];
   const intl = new Intl.DateTimeFormat(locale, { month: "long" });
 
@@ -29,8 +32,9 @@ export const useCalendarData = (locale = "es", year) => {
     const nextMonthIndex = monthKey + 1;
     const daysOfMonth = new Date(year, nextMonthIndex, 0).getDate();
 
-    const startsOn = new Date(year, monthKey, 1).getDay();
-
+    let starts = new Date(year, monthKey, 1).getDay();
+    let startsOn = starts === 0 ? 7 : starts;
+    console.log(startsOn);
     return {
       monthName,
       daysOfMonth,

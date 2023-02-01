@@ -1,7 +1,10 @@
 import React from "react";
 
-export const Month = ({monthName, year, ClassName}) => {
+export const Month = ({ monthName, year, ClassName }) => {
   return (
-    <h1 className={ClassName}>{`${monthName} ${year}`}</h1>
-  )
-}
+    <div className={ClassName}>
+      <p>{`${monthName} de`}</p>
+      <p>{`${year}`}</p>
+    </div>
+  );
+};

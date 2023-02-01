@@ -35,7 +35,7 @@ export const DaysMonth = ({
               <button
                 key={i}
                 start={startsOn}
-                style={i === 0 ? { gridColumn: `${startsOn + 1}` } : null}
+                style={i === 0 ? { gridColumn: `${startsOn}` } : null}
                 className={i === 0 ? "first-day" : null}
                 onClick={() => clickDay(year, monthName, i + 1)}
               >

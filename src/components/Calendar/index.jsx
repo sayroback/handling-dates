@@ -24,17 +24,20 @@ export const CalendarDesktop = ({ locale = "es", Year, listEvents }) => {
         <span onClick={() => setCarrouselScroll(initialScroll)}>
           {fullDate}
         </span>
-        <Buttons setValue={setCarrouselScroll} value={carrouselScroll} />
       </div>
       <section className="calendar">
         <div className="calendar--container">
           <div className="calendar__month--container">
             {/* Las clases de los componentes se asignan con la primer letra mayúscula ClassName ya que NO es el atributo className de ReactJS */}
-            <Month
-              ClassName="calendar__month--name"
-              monthName={calendar[carrouselScroll].monthName}
-              year={year}
-            />
+            <div className="calendar__buttons">
+              <Buttons setValue={setCarrouselScroll} value={carrouselScroll}>
+                <Month
+                  ClassName="calendar__month--name"
+                  monthName={calendar[carrouselScroll].monthName}
+                  year={year}
+                />
+              </Buttons>
+            </div>
             <div className="calendar__month__days">
               <DaysNames
                 ClassName="calendar__month__days--name"
