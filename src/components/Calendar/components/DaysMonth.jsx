@@ -32,7 +32,7 @@ export const DaysMonth = ({
       <ol className={ClassName}>
         {days
           ? days.map((day, i) => (
-              <li
+              <button
                 key={i}
                 start={startsOn}
                 style={i === 0 ? { gridColumn: `${startsOn + 1}` } : null}
@@ -49,7 +49,7 @@ export const DaysMonth = ({
                 >
                   {day + 1}
                 </span>
-              </li>
+              </button>
             ))
           : null}
       </ol>

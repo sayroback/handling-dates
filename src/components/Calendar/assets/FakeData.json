@@ -1,0 +1,14 @@
+[
+  {
+    "idEmpres": 1,
+    "idSucursal": 1,
+    "dia_inhabil": "2023-02-22T06:00:00.000Z",
+    "descripcion": "Día inhábil 1"
+  },
+  {
+    "idEmpres": 1,
+    "idSucursal": 1,
+    "dia_inhabil": "2023-02-23T06:00:00.000Z",
+    "descripcion": "Día inhábil 2"
+  }
+]

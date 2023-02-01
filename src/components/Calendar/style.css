@@ -12,6 +12,7 @@
   --alert-datePicker: #ff7b7b;
   --today-dataPicker: #4ac8e7;
 }
+
 body {
   margin: 5px;
 }
@@ -37,10 +38,12 @@ body {
   font-size: 1.2rem;
   padding-bottom: 12px;
 }
+
 .date-picker--header span {
   cursor: pointer;
   border: solid 1px var(--background-datePicker);
 }
+
 .date-picker--header span:hover {
   border: solid 1px var(--hover-datePicker);
 }
@@ -77,6 +80,7 @@ body {
   height: 2.8rem;
   transition: background-color 0.3s ease;
 }
+
 .calendar__buttons button:hover {
   background-color: var(--hover-datePicker);
 }
@@ -100,12 +104,21 @@ body {
 .calendar__month__days {
   height: inherit;
 }
+
 .calendar__month__days ol {
   margin: 0;
   padding: 0;
 }
+
 .calendar__month__days ol li {
   list-style: none;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar__month__days ol button {
   display: flex;
   height: 100%;
   justify-content: center;
@@ -129,6 +142,7 @@ body {
   height: 2rem;
   border: solid 1px var(--hover-datePicker);
 }
+
 .calendar__month__days--name li {
   border: solid 1px var(--hover-datePicker);
 }
@@ -139,15 +153,18 @@ body {
   grid-template-columns: repeat(7, 1fr);
 }
 
-.calendar__month__days--number li {
+.calendar__month__days--number button {
+  background: none;
   border: solid 1px var(--hover-datePicker);
   transition: background-color 0.3s ease;
 }
-.calendar__month__days--number li:hover {
+
+.calendar__month__days--number button:hover {
   background-color: var(--hover-datePicker);
   cursor: pointer;
 }
-.calendar__month__days--number li span {
+
+.calendar__month__days--number button span {
   font-size: 0.9rem;
   text-align: center;
   width: 0.9rem;
@@ -157,6 +174,7 @@ body {
   border-radius: 50%;
   transition: background-color 0.3s cubic-bezier(0.43, 0.01, 1, 0.72);
 }
-.calendar__month__days--number li span.today {
+
+.calendar__month__days--number button span.today {
   background-color: var(--today-dataPicker);
 }
