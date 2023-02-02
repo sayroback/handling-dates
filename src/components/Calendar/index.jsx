@@ -7,6 +7,7 @@ import { useCalendarData } from "./hooks/useCalendarData";
 import styled from "styled-components";
 import { Buttons } from "./components/Buttons";
 import { useCalendarToday } from "./hooks/useCalendarToday";
+import { useCalendarEvents } from "./hooks/useCalendarEvents";
 
 // Las dimensiones mínimas del componente son 470x470 px
 // Las dimensiones máximas del componente son 720x600 px
@@ -19,7 +20,8 @@ export const CalendarDesktop = ({
   const { calendar, weekDaysNames, fullDate, year, today, findIndexMonth } =
     useCalendarData(locale, Year);
   const { monthTodayNameString, numDay, initialScroll, yearToday } =
-    useCalendarToday(locale, listEvents);
+    useCalendarToday(locale);
+  const { dateEvents } = useCalendarEvents(listEvents, locale);
   const [carrouselScroll, setCarrouselScroll] = useState(initialScroll);
 
   const onClickDateToday = () => {
@@ -58,8 +60,8 @@ export const CalendarDesktop = ({
                 monthName={calendar[carrouselScroll].monthName}
                 today={numDay}
                 monthToday={monthTodayNameString}
-                year={Year}
-                listEvents={listEvents}
+                year={Year ? Year : yearToday}
+                listEvents={dateEvents}
               />
             </div>
           </div>

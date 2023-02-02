@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCalendarToday } from "../hooks/useCalendarToday";
 import { useOnClickDay } from "../hooks/useOnClickDay";
 
 export const DaysMonth = ({
@@ -9,6 +10,7 @@ export const DaysMonth = ({
   today,
   monthToday,
   year,
+  listEvents,
 }) => {
   const days = [...Array(daysNumber).keys()];
   const initialSelectDay = {
@@ -17,6 +19,8 @@ export const DaysMonth = ({
   };
   const [selectDay, setSelectDay] = useState(initialSelectDay);
   const { OnClickDay } = useOnClickDay();
+  const { yearToday } = useCalendarToday();
+
   const clickDay = (year, month, dayClick) => {
     let dataClick = OnClickDay(year, month, dayClick);
     if (JSON.stringify(selectDay) === JSON.stringify(dataClick)) {
@@ -24,15 +28,26 @@ export const DaysMonth = ({
     } else {
       setSelectDay(dataClick);
     }
+    console.log(dataClick);
   };
 
   const classForDays = (index) => {
-    if ((monthName === selectDay.month) & (selectDay.dayClick === index + 1)) {
+    let diasInhabilies = listEvents.filter(
+      (el) => (el.day === index) & (el.month === monthName) & (el.year === year)
+    );
+    if (
+      (monthName === selectDay.month) &
+      (selectDay.dayClick === index + 1) &
+      (year === yearToday)
+    ) {
       return "today";
+    } else if (diasInhabilies.length > 0) {
+      return "event";
     }
+    console.log();
     return null;
   };
-
+  console.log(year);
   return (
     <>
       <ol className={ClassName}>

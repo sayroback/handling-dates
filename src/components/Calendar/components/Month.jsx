@@ -23,11 +23,7 @@ export const Month = ({
       <p>{`${monthName} de`}</p>
       {/* <p>{`${year}`}</p> */}
       <div className="calendar__month--year">
-        <select
-          defaultValue={year}
-          value={year}
-          onChange={(e) => onChangeYear(e)}
-        >
+        <select value={year} onChange={(e) => onChangeYear(e)}>
           {listYears.map((el) => (
             <option key={el} style={{ background: "#ffffff" }} value={el}>
               {el}

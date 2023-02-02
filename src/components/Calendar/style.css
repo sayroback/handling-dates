@@ -182,3 +182,7 @@ body {
   background-color: var(--today-dataPicker);
   color: var(--hover-datePicker);
 }
+.calendar__month__days--number button div.event {
+  background-color: var(--alert-datePicker);
+  color: var(--hover-datePicker);
+}
