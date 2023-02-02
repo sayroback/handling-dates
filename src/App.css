@@ -27,10 +27,11 @@ footer {
 .page--calendar-desktop {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  gap: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 30px;
   justify-content: center;
   padding-top: 40px;
+  grid-auto-rows: 1fr;
 }
 
 .CalendarDesktop {

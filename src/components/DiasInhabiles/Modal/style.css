@@ -1,17 +1,34 @@
 .modal-addEvent--background {
   position: fixed;
-  z-index: 999;
+  z-index: 900;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #f8f8f800;
 }
 
 .modal-addEvent--container {
   position: absolute;
+  z-index: 1000;
   height: 300px;
   width: 300px;
+  padding: 12px;
   background-color: var(--background-datePicker);
-  border: 1px solid black;
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 12px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.modal-addEvent--close {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.modal-addEvent--data {
+  display: flex;
+  flex-direction: column;
+}
+.modal-addEvent--data label {
+  display: block;
+  padding: 12px 8px;
 }

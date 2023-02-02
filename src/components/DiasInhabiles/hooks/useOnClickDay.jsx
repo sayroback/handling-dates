@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCalendarData } from "./useCalendarData";
 
 export const useOnClickDay = () => {
@@ -7,7 +7,7 @@ export const useOnClickDay = () => {
   const OnClickDay = (year, month, dayClick) => {
     let monthIndex = findIndexMonth(month);
     let newDate = new Date(year, monthIndex, dayClick);
-    return { monthIndex, dayClick, month, newDate };
+    return { monthIndex, dayClick, month, year, newDate };
   };
   return { OnClickDay };
 };

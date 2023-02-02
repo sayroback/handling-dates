@@ -19,9 +19,9 @@ export const DaysMonth = ({
     dayClick: today,
     month: monthToday,
   };
-  const [selectDay, setSelectDay] = useState(initialSelectDay);
   const { OnClickDay } = useOnClickDay();
   const { yearToday } = useCalendarToday();
+  const [selectDay, setSelectDay] = useState(initialSelectDay);
 
   const clickDay = (event, year, month, dayClick) => {
     let dataClick = OnClickDay(year, month, dayClick);
@@ -29,16 +29,13 @@ export const DaysMonth = ({
       (el) =>
         (el.day === dayClick) & (el.month === monthName) & (el.year === year)
     );
-    if (JSON.stringify(selectDay) === JSON.stringify(dataClick)) {
-      setSelectDay(initialSelectDay);
-    } else {
-      setSelectDay(dataClick);
-    }
+    setSelectDay(dataClick);
     setCoordinatesModal({
       clientY: event.clientY - 120,
       clientX: event.clientX + 40,
       viewModal: true,
       dataEvent: eventDay,
+      dataClick: dataClick,
     });
   };
 

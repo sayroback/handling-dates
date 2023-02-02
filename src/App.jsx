@@ -16,6 +16,7 @@ function App() {
     clientX: 0,
     viewModal: false,
     dataEvent: {},
+    dataClick: {},
   };
   const yearToday = today.getUTCFullYear().toString();
   const [yearCalendarDesktop, setYearCalendarDesktop] = useState(yearToday);
@@ -31,15 +32,17 @@ function App() {
       <div className="App">
         <div className="sidebar">sidebar</div>
         <div className="page--calendar-desktop">
-          <div className="CalendarDesktop">
-            <CalendarDesktop
-              locale={locale}
-              listEvents={dias_inhabiles}
-              Year={yearCalendarDesktop}
-              setYearCalendarDesktop={setYearCalendarDesktop}
-              dateEvents={dateEvents}
-              setCoordinatesModal={setCoordinatesModal}
-            />
+          <div>
+            <div className="CalendarDesktop">
+              <CalendarDesktop
+                locale={locale}
+                listEvents={dias_inhabiles}
+                Year={yearCalendarDesktop}
+                setYearCalendarDesktop={setYearCalendarDesktop}
+                dateEvents={dateEvents}
+                setCoordinatesModal={setCoordinatesModal}
+              />
+            </div>
           </div>
           <ListEvents listEvents={groupedEvents} Year={yearCalendarDesktop} />
         </div>
