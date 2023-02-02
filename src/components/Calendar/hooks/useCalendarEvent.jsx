@@ -12,5 +12,5 @@ export const useCalendarEvent = (locale = "es") => {
   let numDay = today.getDate();
   const initialScroll = monthToday;
 
-  return { monthTodayNameString, numDay, monthToday, initialScroll };
+  return { monthTodayNameString, numDay, monthToday, initialScroll, yearToday };
 };

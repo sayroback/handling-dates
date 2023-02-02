@@ -10,20 +10,27 @@ import { useCalendarEvent } from "./hooks/useCalendarEvent";
 
 // Las dimensiones mínimas del componente son 470x470 px
 // Las dimensiones máximas del componente son 720x600 px
-export const CalendarDesktop = ({ locale = "es", Year, listEvents }) => {
+export const CalendarDesktop = ({
+  locale = "es",
+  Year,
+  listEvents,
+  setYearCalendarDesktop,
+}) => {
   const { calendar, weekDaysNames, fullDate, year, today, findIndexMonth } =
     useCalendarData(locale, Year);
-  const { monthTodayNameString, numDay, initialScroll } =
+  const { monthTodayNameString, numDay, initialScroll, yearToday } =
     useCalendarEvent(locale);
-
   const [carrouselScroll, setCarrouselScroll] = useState(initialScroll);
+
+  const onClickDateToday = () => {
+    setYearCalendarDesktop(yearToday);
+    setCarrouselScroll(initialScroll);
+  };
 
   return (
     <div className="date-picker">
       <div className="date-picker--header">
-        <span onClick={() => setCarrouselScroll(initialScroll)}>
-          {fullDate}
-        </span>
+        <span onClick={() => onClickDateToday()}>{fullDate}</span>
       </div>
       <section className="calendar">
         <div className="calendar--container">
@@ -35,6 +42,7 @@ export const CalendarDesktop = ({ locale = "es", Year, listEvents }) => {
                   ClassName="calendar__month--name"
                   monthName={calendar[carrouselScroll].monthName}
                   year={year}
+                  setYearCalendarDesktop={setYearCalendarDesktop}
                 />
               </Buttons>
             </div>
@@ -50,7 +58,7 @@ export const CalendarDesktop = ({ locale = "es", Year, listEvents }) => {
                 monthName={calendar[carrouselScroll].monthName}
                 today={numDay}
                 monthToday={monthTodayNameString}
-                year={year}
+                year={Year}
               />
             </div>
           </div>

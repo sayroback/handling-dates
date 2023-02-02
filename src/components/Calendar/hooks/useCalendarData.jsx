@@ -34,7 +34,6 @@ export const useCalendarData = (locale = "es", year) => {
 
     let starts = new Date(year, monthKey, 1).getDay();
     let startsOn = starts === 0 ? 7 : starts;
-    console.log(startsOn);
     return {
       monthName,
       daysOfMonth,
