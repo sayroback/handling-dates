@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useCalendarToday } from "../hooks/useCalendarToday";
-import { useOnClickDay } from "../hooks/useOnClickDay";
+import { useCalendarToday } from "../../hooks/useCalendarToday";
+import { useOnClickDay } from "../../hooks/useOnClickDay";
 
 export const DaysMonth = ({
   daysNumber,

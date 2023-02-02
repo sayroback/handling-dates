@@ -1,15 +1,15 @@
-.App {
+.CalendarDesktop {
   width: 500px;
   height: 500px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 :root {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   --background-datePicker: #ffffff;
   --hover-datePicker: #f1f1f1;
   --today-dataPicker: #ff7b7b;
@@ -151,6 +151,7 @@ body {
   display: grid;
   height: 70%;
   grid-template-columns: repeat(7, 1fr);
+  transition: all 1s cubic-bezier(0.43, 0.01, 1, 0.72);
 }
 
 .calendar__month__days--number button {
@@ -182,6 +183,7 @@ body {
   background-color: var(--today-dataPicker);
   color: var(--hover-datePicker);
 }
+
 .calendar__month__days--number button div.event {
   background-color: var(--alert-datePicker);
   color: var(--hover-datePicker);

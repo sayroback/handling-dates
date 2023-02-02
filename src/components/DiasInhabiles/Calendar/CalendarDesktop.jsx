@@ -3,11 +3,10 @@ import "./style.css";
 import { DaysMonth } from "./components/DaysMonth";
 import { DaysNames } from "./components/DaysNames";
 import { Month } from "./components/Month";
-import { useCalendarData } from "./hooks/useCalendarData";
+import { useCalendarData } from "../hooks/useCalendarData";
 import styled from "styled-components";
 import { Buttons } from "./components/Buttons";
-import { useCalendarToday } from "./hooks/useCalendarToday";
-import { useCalendarEvents } from "./hooks/useCalendarEvents";
+import { useCalendarToday } from "../hooks/useCalendarToday";
 
 // Las dimensiones mínimas del componente son 470x470 px
 // Las dimensiones máximas del componente son 720x600 px
@@ -16,12 +15,13 @@ export const CalendarDesktop = ({
   Year,
   listEvents,
   setYearCalendarDesktop,
+  dateEvents,
 }) => {
   const { calendar, weekDaysNames, fullDate, year, today, findIndexMonth } =
     useCalendarData(locale, Year);
   const { monthTodayNameString, numDay, initialScroll, yearToday } =
     useCalendarToday(locale);
-  const { dateEvents } = useCalendarEvents(listEvents, locale);
+
   const [carrouselScroll, setCarrouselScroll] = useState(initialScroll);
 
   const onClickDateToday = () => {
