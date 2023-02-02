@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css";
 import dias_inhabiles from "./assets/FakeData.json";
 import {
   CalendarDesktop,
@@ -11,10 +12,14 @@ function App() {
   const today = new Date();
   const yearToday = today.getUTCFullYear().toString();
   const [yearCalendarDesktop, setYearCalendarDesktop] = useState(yearToday);
-  const { dateEvents } = useCalendarEvents(dias_inhabiles, locale);
+  const { dateEvents, groupedEvents } = useCalendarEvents(
+    dias_inhabiles,
+    locale,
+    yearCalendarDesktop
+  );
 
   return (
-    <>
+    <div className="App">
       <div className="CalendarDesktop">
         <CalendarDesktop
           locale={locale}
@@ -24,8 +29,8 @@ function App() {
           dateEvents={dateEvents}
         />
       </div>
-      <ListEvents listEvents={dias_inhabiles} Year={yearCalendarDesktop} />
-    </>
+      <ListEvents listEvents={groupedEvents} Year={yearCalendarDesktop} />
+    </div>
   );
 }
 

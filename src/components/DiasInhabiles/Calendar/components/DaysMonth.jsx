@@ -31,19 +31,22 @@ export const DaysMonth = ({
   };
 
   const classForDays = (index) => {
-    let diasInhabilies = listEvents.filter(
-      (el) => (el.day === index) & (el.month === monthName) & (el.year === year)
-    );
-    if (
-      (monthName === selectDay.month) &
-      (selectDay.dayClick === index + 1) &
-      (year === yearToday)
-    ) {
-      return "today";
-    } else if (diasInhabilies.length > 0) {
-      return "event";
+    if (listEvents) {
+      let diasInhabilies = listEvents.filter(
+        (el) =>
+          (el.day === index) & (el.month === monthName) & (el.year === year)
+      );
+      if (
+        (monthName === selectDay.month) &
+        (selectDay.dayClick === index + 1) &
+        (year === yearToday)
+      ) {
+        return "today";
+      } else if (diasInhabilies.length > 0) {
+        return "event";
+      }
     }
-    return null;
+    return "";
   };
 
   return (
