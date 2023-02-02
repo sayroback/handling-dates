@@ -1,62 +1,72 @@
 [
   {
+    "idDiaInhabil": 0,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-02-22T06:00:00.000Z",
+    "diaInhabil": "2023-02-22T06:00:00.000Z",
     "descripcion": "Día inhábil 1"
   },
   {
+    "idDiaInhabil": 1,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-02-23T06:00:00.000Z",
+    "diaInhabil": "2023-02-23T06:00:00.000Z",
     "descripcion": "Día inhábil 2"
   },
   {
+    "idDiaInhabil": 2,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-03-03T06:00:00.000Z",
+    "diaInhabil": "2023-03-03T06:00:00.000Z",
     "descripcion": "Día inhábil 2"
   },
   {
+    "idDiaInhabil": 3,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-04-22T06:00:00.000Z",
+    "diaInhabil": "2023-04-22T06:00:00.000Z",
     "descripcion": "Día inhábil 1"
   },
   {
+    "idDiaInhabil": 4,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-05-23T06:00:00.000Z",
+    "diaInhabil": "2023-05-23T06:00:00.000Z",
     "descripcion": "Día inhábil 2"
   },
   {
+    "idDiaInhabil": 5,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-06-03T06:00:00.000Z",
+    "diaInhabil": "2023-06-03T06:00:00.000Z",
     "descripcion": "Día inhábil 2"
   },
   {
+    "idDiaInhabil": 6,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-07-22T06:00:00.000Z",
+    "diaInhabil": "2023-07-22T06:00:00.000Z",
     "descripcion": "Día inhábil 1"
   },
   {
+    "idDiaInhabil": 7,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-08-23T06:00:00.000Z",
+    "diaInhabil": "2023-08-23T06:00:00.000Z",
     "descripcion": "Día inhábil 2"
   },
   {
+    "idDiaInhabil": 8,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-09-22T06:00:00.000Z",
+    "diaInhabil": "2023-09-22T06:00:00.000Z",
     "descripcion": "Día inhábil 1"
   },
   {
+    "idDiaInhabil": 9,
     "idEmpres": 1,
     "idSucursal": 1,
-    "dia_inhabil": "2023-10-23T06:00:00.000Z",
+    "diaInhabil": "2023-10-23T06:00:00.000Z",
     "descripcion": "Día inhábil 2"
   }
 ]

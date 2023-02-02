@@ -10,7 +10,9 @@ export const DaysMonth = ({
   today,
   monthToday,
   year,
+  dateEvents,
   listEvents,
+  setCoordinatesModal,
 }) => {
   const days = [...Array(daysNumber).keys()];
   const initialSelectDay = {
@@ -21,20 +23,30 @@ export const DaysMonth = ({
   const { OnClickDay } = useOnClickDay();
   const { yearToday } = useCalendarToday();
 
-  const clickDay = (year, month, dayClick) => {
+  const clickDay = (event, year, month, dayClick) => {
     let dataClick = OnClickDay(year, month, dayClick);
+    let eventDay = dateEvents.filter(
+      (el) =>
+        (el.day === dayClick) & (el.month === monthName) & (el.year === year)
+    );
     if (JSON.stringify(selectDay) === JSON.stringify(dataClick)) {
       setSelectDay(initialSelectDay);
     } else {
       setSelectDay(dataClick);
     }
+    setCoordinatesModal({
+      clientY: event.clientY - 120,
+      clientX: event.clientX + 40,
+      viewModal: true,
+      dataEvent: eventDay,
+    });
   };
 
   const classForDays = (index) => {
-    if (listEvents) {
-      let diasInhabilies = listEvents.filter(
+    if (dateEvents) {
+      let diasInhabilies = dateEvents.filter(
         (el) =>
-          (el.day === index) & (el.month === monthName) & (el.year === year)
+          (el.day === index + 1) & (el.month === monthName) & (el.year === year)
       );
       if (
         (monthName === selectDay.month) &
@@ -59,7 +71,7 @@ export const DaysMonth = ({
                 start={startsOn}
                 style={i === 0 ? { gridColumn: `${startsOn}` } : null}
                 className={i === 0 ? "first-day" : null}
-                onClick={() => clickDay(year, monthName, i + 1)}
+                onClick={(e) => clickDay(e, year, monthName, i + 1)}
               >
                 <div className={classForDays(i)}>{day + 1}</div>
               </button>

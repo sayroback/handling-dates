@@ -5,6 +5,7 @@
   min-width: 22rem;
   max-width: 45rem;
   background-color: var(--background-datePicker);
+  position: fixed;
 }
 
 .date-picker--header {

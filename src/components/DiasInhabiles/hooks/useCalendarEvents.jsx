@@ -10,7 +10,7 @@ export const useCalendarEvents = (
 
   if (listEvents.length > 0) {
     dateEvents = listEvents.map((el) => {
-      let date = new Date(el.dia_inhabil);
+      let date = new Date(el.diaInhabil);
       let year = date.getUTCFullYear().toString();
       if (year === yearCalendarDesktop) {
         let day = date.getDate();
@@ -19,7 +19,8 @@ export const useCalendarEvents = (
         let monthName = intl.format(new Date(year, monthNumber));
         let month = monthName.charAt(0).toUpperCase() + monthName.slice(1);
         let description = el.descripcion;
-        return { day, year, month, description };
+        let Id = el.idDiaInhabil;
+        return { Id, day, year, month, description };
       } else return [];
     });
 

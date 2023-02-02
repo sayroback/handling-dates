@@ -13,6 +13,7 @@ export const CalendarDesktop = ({
   listEvents,
   setYearCalendarDesktop,
   dateEvents,
+  setCoordinatesModal,
 }) => {
   const { calendar, weekDaysNames, fullDate, year, today, findIndexMonth } =
     useCalendarData(locale, Year);
@@ -58,7 +59,9 @@ export const CalendarDesktop = ({
                 today={numDay}
                 monthToday={monthTodayNameString}
                 year={Year ? Year : yearToday}
-                listEvents={dateEvents}
+                listEvents={listEvents}
+                dateEvents={dateEvents}
+                setCoordinatesModal={setCoordinatesModal}
               />
             </div>
           </div>

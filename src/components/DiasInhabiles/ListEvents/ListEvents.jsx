@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 export const ListEvents = ({ listEvents, Year }) => {
-  console.log(listEvents);
   return (
     <div className="list-events">
       <h1 className="list-events--title">Días inhábiles {Year}</h1>
