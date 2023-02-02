@@ -24,7 +24,13 @@ export const DaysMonth = ({
     } else {
       setSelectDay(dataClick);
     }
-    console.log(dataClick);
+  };
+
+  const classForDays = (index) => {
+    if ((monthName === selectDay.month) & (selectDay.dayClick === index + 1)) {
+      return "today";
+    }
+    return null;
   };
 
   return (
@@ -39,16 +45,7 @@ export const DaysMonth = ({
                 className={i === 0 ? "first-day" : null}
                 onClick={() => clickDay(year, monthName, i + 1)}
               >
-                <div
-                  className={
-                    (monthName === selectDay.month) &
-                    (selectDay.dayClick === i + 1)
-                      ? "today"
-                      : null
-                  }
-                >
-                  {day + 1}
-                </div>
+                <div className={classForDays(i)}>{day + 1}</div>
               </button>
             ))
           : null}

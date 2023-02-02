@@ -19,7 +19,7 @@ export const CalendarDesktop = ({
   const { calendar, weekDaysNames, fullDate, year, today, findIndexMonth } =
     useCalendarData(locale, Year);
   const { monthTodayNameString, numDay, initialScroll, yearToday } =
-    useCalendarEvent(locale);
+    useCalendarEvent(locale, listEvents);
   const [carrouselScroll, setCarrouselScroll] = useState(initialScroll);
 
   const onClickDateToday = () => {
@@ -59,6 +59,7 @@ export const CalendarDesktop = ({
                 today={numDay}
                 monthToday={monthTodayNameString}
                 year={Year}
+                listEvents={listEvents}
               />
             </div>
           </div>

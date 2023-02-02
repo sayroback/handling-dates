@@ -1,23 +1,18 @@
-import Lottie from "lottie-react";
-import React, { useState } from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
+import React, { useRef, useState } from "react";
 import arrow from "../assets/arrow.json";
 
 export const Buttons = ({ setValue, value, children }) => {
-  const [loopLeft, setLoopLeft] = useState(false);
-  const [loopRight, setLoopRight] = useState(false);
+  const playerRefLeft = useRef(null);
+  const playerRefRight = useRef(null);
+
   const clickLeft = () => {
+    playerRefLeft.current.play();
     setValue(value - 1);
-    setLoopLeft(true);
-    setTimeout(() => {
-      setLoopLeft(false);
-    }, 10);
   };
   const clickRight = () => {
+    playerRefRight.current.play();
     setValue(value + 1);
-    setLoopRight(true);
-    setTimeout(() => {
-      setLoopRight(false);
-    }, 10);
   };
 
   return (
@@ -27,11 +22,11 @@ export const Buttons = ({ setValue, value, children }) => {
         onClick={() => clickLeft()}
         disabled={value === 0}
       >
-        <Lottie animationData={arrow} loop={loopLeft}></Lottie>
+        <Player src={arrow} speed={3} ref={playerRefLeft}></Player>
       </button>
       {children}
       <button onClick={() => clickRight()} disabled={value >= 11}>
-        <Lottie animationData={arrow} loop={loopRight}></Lottie>
+        <Player src={arrow} speed={3} ref={playerRefRight}></Player>
       </button>
     </>
   );
