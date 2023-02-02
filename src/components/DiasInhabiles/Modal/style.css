@@ -1,0 +1,9 @@
+.modal-addEvent {
+  position: absolute;
+  right: 50vw;
+  top: 25vh;
+  height: 300px;
+  width: 300px;
+  background-color: var(--background-datePicker);
+  border: 1px solid black;
+}

@@ -5,6 +5,7 @@ import {
   CalendarDesktop,
   ListEvents,
   useCalendarEvents,
+  ModalAddEvent
 } from "./components/DiasInhabiles";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         />
       </div>
       <ListEvents listEvents={groupedEvents} Year={yearCalendarDesktop} />
+      <ModalAddEvent />
     </div>
   );
 }

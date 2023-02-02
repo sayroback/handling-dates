@@ -4,12 +4,9 @@ import { DaysMonth } from "./components/DaysMonth";
 import { DaysNames } from "./components/DaysNames";
 import { Month } from "./components/Month";
 import { useCalendarData } from "../hooks/useCalendarData";
-import styled from "styled-components";
 import { Buttons } from "./components/Buttons";
 import { useCalendarToday } from "../hooks/useCalendarToday";
 
-// Las dimensiones mínimas del componente son 470x470 px
-// Las dimensiones máximas del componente son 720x600 px
 export const CalendarDesktop = ({
   locale = "es",
   Year,

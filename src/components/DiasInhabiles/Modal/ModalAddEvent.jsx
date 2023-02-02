@@ -1,8 +1,9 @@
 import React from "react";
+import "./style.css"
 
 export const ModalAddEvent = () => {
   return (
-    <div>
+    <div className="modal-addEvent">
       <h1>ModalAddEvent</h1>
     </div>
   );
