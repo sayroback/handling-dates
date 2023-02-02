@@ -1,5 +1,5 @@
 import React from "react";
-import { useCalendarEvent } from "../hooks/useCalendarEvent";
+import { useCalendarToday } from "../hooks/useCalendarToday";
 
 export const Month = ({
   monthName,
@@ -7,7 +7,7 @@ export const Month = ({
   ClassName,
   setYearCalendarDesktop,
 }) => {
-  const { yearToday } = useCalendarEvent();
+  const { yearToday } = useCalendarToday();
   const onChangeYear = (event) => {
     setYearCalendarDesktop(event.target.value);
   };

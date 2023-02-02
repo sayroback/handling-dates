@@ -1,6 +1,6 @@
 import React from "react";
 
-export const useCalendarEvent = (locale = "es", listEvents) => {
+export const useCalendarToday = (locale = "es", listEvents) => {
   const today = new Date();
   const yearToday = today.getUTCFullYear();
   let monthToday = today.getUTCMonth(locale);
