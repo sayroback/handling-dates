@@ -5,7 +5,7 @@ export const useCalendarEvents = (listEvents, locale = "es") => {
   if (listEvents) {
     dateEvents = listEvents.map((el) => {
       let date = new Date(el.dia_inhabil);
-      let year = date.getUTCFullYear();
+      let year = date.getUTCFullYear().toString();
       let day = date.getDate();
       let monthNumber = date.getUTCMonth(locale);
       let intl = new Intl.DateTimeFormat(locale, { month: "long" });

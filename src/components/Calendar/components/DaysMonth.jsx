@@ -28,7 +28,6 @@ export const DaysMonth = ({
     } else {
       setSelectDay(dataClick);
     }
-    console.log(dataClick);
   };
 
   const classForDays = (index) => {
@@ -44,10 +43,9 @@ export const DaysMonth = ({
     } else if (diasInhabilies.length > 0) {
       return "event";
     }
-    console.log();
     return null;
   };
-  console.log(year);
+
   return (
     <>
       <ol className={ClassName}>
