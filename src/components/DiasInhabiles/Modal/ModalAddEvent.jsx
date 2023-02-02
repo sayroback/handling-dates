@@ -37,8 +37,7 @@ export const ModalAddEvent = ({
             X
           </span>
         </div>
-        <div className="modal-addEvent--data">
-          <h1>{descriptionEvent ? descriptionEvent : "Agregar día inhábil"}</h1>
+        <div className="modal-addEvent__data">
           <ModalForm
             descriptionEvent={descriptionEvent}
             dataClick={coordinates.dataClick}

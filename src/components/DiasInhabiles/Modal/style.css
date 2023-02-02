@@ -24,11 +24,28 @@
   flex-direction: row-reverse;
 }
 
-.modal-addEvent--data {
+.modal-addEvent__data {
   display: flex;
   flex-direction: column;
 }
-.modal-addEvent--data label {
+.modal-addEvent__data label {
   display: block;
   padding: 12px 8px;
+}
+
+.modal-addEvent__data--title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.modal-addEvent__data--title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.modal-addEvent__data .event {
+  width: 0.9rem;
+  height: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--alert-datePicker);
 }
