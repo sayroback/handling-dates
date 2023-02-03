@@ -19,8 +19,12 @@ export const useCalendarEvents = (
         let monthName = intl.format(new Date(year, monthNumber));
         let month = monthName.charAt(0).toUpperCase() + monthName.slice(1);
         let description = el.descripcion;
-        let Id = el.idDiaInhabil;
-        return { Id, day, year, month, description };
+        let Ids = {
+          id: el.id_dia_inhabil,
+          idSucursal: el.id_sucursal,
+          idEmpresa: el.id_empresa,
+        };
+        return { Ids, day, year, month, description };
       } else return [];
     });
 

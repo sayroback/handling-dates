@@ -13,6 +13,8 @@ export const ModalAddEvent = ({
   let descriptionEvent = coordinates.dataEvent[0]?.description;
   const [edit, setEdit] = useState(false);
 
+  console.log(coordinates.dataEvent);
+
   useEffect(() => {
     setEdit(!!descriptionEvent);
   }, [descriptionEvent]);
